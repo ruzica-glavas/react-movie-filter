@@ -17,11 +17,11 @@ function App() {
   {/* Parametri che servono per il filtraggio */}
   const [filteredGenres, setFilteredGenres] = useState(movies);
 
-
+  const genres = [`Tutti`, ... movies.map ((movie => movie.genre))]
   
 
   useEffect(() => {
-    if (selectedGenres === "") {
+    if (selectedGenres === `Tutti`) {
       setFilteredGenres(movies);
     } else {
       setFilteredGenres(movies.filter((movie) => movie.genre === selectedGenres));
@@ -37,8 +37,8 @@ function App() {
 
           <select value={selectedGenres} 
             onChange={(e) => setSelectedGenres(e.target.value)}>
-            {movies.map ((movie, index)=>
-              <option key={index}>{(movie.genre)}</option>
+            {genres.map ((movie, index)=>
+              <option key={index}>{(movie)}</option>
             )}
               
           </select>
