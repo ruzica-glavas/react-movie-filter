@@ -13,6 +13,8 @@ const movies=  [
 function App() {
 
   const [selectedGenres, setSelectedGenres] = useState (``);
+
+  {/* Parametri che servono per il filtraggio */}
   const [filteredGenres, setFilteredGenres] = useState(movies);
 
 
