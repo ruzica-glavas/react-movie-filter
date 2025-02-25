@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 
 
+
 function App() {
  const movies=  [
         { title: 'Inception', genre: 'Fantascienza' },
@@ -13,6 +14,9 @@ function App() {
 
   return (
     <>
+      <h1>Seleziona il tuo film!</h1>
+
+    
       
     </>
   )
