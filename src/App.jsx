@@ -19,7 +19,7 @@ function App() {
   
 
   useEffect(() => {
-    if (selectedGenres === "" || selectedGenres === "Tutti") {
+    if (selectedGenres === "") {
       setFilteredGenres(movies);
     } else {
       setFilteredGenres(movies.filter((movie) => movie.genre === selectedGenres));
