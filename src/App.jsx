@@ -17,6 +17,7 @@ function App() {
   {/* Parametri che servono per il filtraggio */}
   const [filteredGenres, setFilteredGenres] = useState(movies);
 
+  {/* Per far in modo che se non c'è nessun genere selezionato, ci sia la lista completa in stampa */}
   const genres = [``, ... movies.map ((movie => movie.genre))]
   
 
