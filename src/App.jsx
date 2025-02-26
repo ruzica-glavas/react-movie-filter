@@ -12,23 +12,23 @@ const movies=  [
 
 function App() {
 
-  const [selectedGenres, setSelectedGenres] = useState (``);
+  const [genres, setGenres] = useState (``);
 
   {/* Parametri che servono per il filtraggio */}
   const [filteredGenres, setFilteredGenres] = useState(movies);
 
   {/* Per far in modo che se non c'è nessun genere selezionato, ci sia la lista completa in stampa */}
-  const genres = [``, ... movies.map ((movie => movie.genre))]
+  const newGenres = [``, ... movies.map ((movie => movie.genre))]
   
 
   useEffect(() => {
-    if (selectedGenres === ``) {
+    if (genres === ``) {
       setFilteredGenres(movies);
     } else {
-      setFilteredGenres(movies.filter((movie) => movie.genre === selectedGenres));
+      setFilteredGenres(movies.filter((movie) => movie.genre === genres));
     }
-    console.log(selectedGenres);
-     }, [selectedGenres]);
+    console.log(genres);
+     }, [genres]);
 
   return (
     <>
@@ -36,9 +36,9 @@ function App() {
 
       <label>Scegli il tuo genere di film:</label>
 
-          <select value={selectedGenres} 
-            onChange={(e) => setSelectedGenres(e.target.value)}>
-            {genres.map ((movie, index)=>
+          <select value={genres} 
+            onChange={(e) => setGenres(e.target.value)}>
+            {newGenres.map ((movie, index)=>
               <option key={index}>{(movie)}</option>
             )}
               
