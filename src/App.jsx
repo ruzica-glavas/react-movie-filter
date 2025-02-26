@@ -17,12 +17,14 @@ function App() {
   {/* Parametri che servono per il filtraggio */}
   const [filteredGenres, setFilteredGenres] = useState(movies);
 
-  {/* Per far in modo che se non c'è nessun genere selezionato, ci sia la lista completa in stampa */}
-  const newGenres = [``, ... movies.map ((movie => movie.genre))]
+  {/* Per far in modo che se non c'è nessun genere selezionato, ci sia la lista completa in stampa e la creazione
+    di un nuovo array per far in modo di ciclare le informazioni e renderle meno statiche.
+    new Set serve per far in modo che non ci siano ripetizioni nel select*/}
+  const newGenres = [`Tutto`, ... new Set(movies.map ((movie => movie.genre))) ]
   
 
   useEffect(() => {
-    if (genres === ``) {
+    if (genres === `Tutto`) {
       setFilteredGenres(movies);
     } else {
       setFilteredGenres(movies.filter((movie) => movie.genre === genres));
